@@ -1,4 +1,4 @@
-# Part 1: Local Environment Preparation
+# Part 1: Local Environment Setup
 
 In this part We'll setup some basic requirements that will be needed on setting up kubernetes locally. I mainly use Linux thought this guide should be relevan in MacOS. There are a few prequisites before We can continue:
 - virtualbox.
@@ -31,7 +31,7 @@ Alright let's wait for a few minutes until the virtual machine completely runnin
 vagrant global-status
 ```
 
-After the virtual machine state is running, We can get inside it by using this command inside the directory
+After the virtual machine state is `running`, We can get inside it by using this command inside the directory
 
 ```bash
 vagrant ssh
@@ -45,4 +45,4 @@ sudo apt upgrade --yes
 exit
 ```
 
-Alright that's all for this. In the next part We will setting up the virtual machine to run kubernetes inside it.
+Alright that's all for this, in the next part We will setting up the virtual machine to run kubernetes inside it.
