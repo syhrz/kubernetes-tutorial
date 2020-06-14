@@ -8,7 +8,7 @@ You can install them with your favorite package manager or check if both already
 
 ```bash
 vagrant version
-virtualbox
+vboxmanage --version
 ```
 
 Then We can start with an empty directory. 
@@ -21,8 +21,8 @@ cd kubernetes-at-home
 By using vagrant We can initialize and run a virtual machine very easly using terminal. In this guide I'm using Ubuntu Bionic since it's a quite common OS.
 
 ```bash
-vagrant init ubuntu/bionic64
-vagrant up --provide virtualbox
+vagrant init ubuntu/focal64
+vagrant up
 ```
 
 Alright let's wait for a few minutes until the virtual machine completely running. You can check the status of the virtual machines that managed by vagrant by calling this command in any directory.

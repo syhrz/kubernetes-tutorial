@@ -1,4 +1,4 @@
-# kubernetes-tutorial
+# Kubernetes Tutorial
 
 Status: Working in Progress
 
