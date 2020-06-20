@@ -1,0 +1,52 @@
+---
+- hosts: all
+  tasks: 
+  - name: "Set machine hostname"
+    hostname:
+      name: "k8s-master"
+    become: true
+
+  - name: Install docker.io
+    apt:
+      name: "docker.io"
+      state: "present"
+    become: true
+
+  - name: Enable docker
+    systemd:
+        name: docker
+        state: started
+        enabled: true
+    become: true
+
+  - name: Register Google gpg key
+    apt_key:
+      url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+      state: present
+    become: true
+    become_method: sudo
+
+  - name: Add kubernetes apt repository
+    apt_repository:
+      repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+      state: present
+    become: true
+
+  - name: Install kubeadm
+    apt:
+      name: "kubeadm"
+      state: "present"
+    become: true
+
+  - name: Install kubelet
+    apt:
+      name: "kubelet"
+      state: "present"
+    become: true
+
+  - name: Install kubectl
+    apt:
+      name: "kubectl"
+      state: "present"
+    become: true
+
