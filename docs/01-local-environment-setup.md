@@ -3,7 +3,7 @@
 In this part We'll setup some basic requirements that will be needed on setting up kubernetes locally. I mainly use Linux thought this guide should be relevan in MacOS. Before continue please get familiar with these softwares:
 - [Virtualbox](https://www.virtualbox.org/).
 - [Vagrant](https://www.vagrantup.com/).
-- Ansible.
+- [Ansible](https://docs.ansible.com/).
 
 For virtualbox and vagrant You can install them with your favorite package manager or check if both already installed by running these commands.
 
@@ -22,7 +22,6 @@ vagrant init ubuntu/xenial64
 
 We'd like to add a few automation in the virtual machine so open the Vagrantfile with your favorite text editor and add these few lines to install the latest version of ansible.
 ```bash
-...
     config.vm.provision "shell", inline: <<-SHELL
         apt update
         apt install software-properties-common
