@@ -1,10 +1,11 @@
 # Part 1: Local Environment Setup
 
-In this part We'll setup some basic requirements that will be needed on setting up kubernetes locally. I mainly use Linux thought this guide should be relevan in MacOS. There are a few prequisites before We can continue:
-- virtualbox.
-- vagrant.
+In this part We'll setup some basic requirements that will be needed on setting up kubernetes locally. I mainly use Linux thought this guide should be relevan in MacOS. Before continue please get familiar with these softwares:
+- [Virtualbox](https://www.virtualbox.org/).
+- [Vagrant](https://www.vagrantup.com/).
+- Ansible.
 
-You can install them with your favorite package manager or check if both already installed by running these commands.
+For virtualbox and vagrant You can install them with your favorite package manager or check if both already installed by running these commands.
 
 ```bash
 vagrant version
@@ -14,14 +15,25 @@ vboxmanage --version
 Then We can start with an empty directory. 
 
 ```bash
-mkdir kubernetes-at-home
-cd kubernetes-at-home
+mkdir my-kube
+cd my-kube
+vagrant init ubuntu/xenial64
 ```
 
-By using vagrant We can initialize and run a virtual machine very easly using terminal. In this guide I'm using Ubuntu Bionic since it's a quite common OS.
-
+We'd like to add a few automation in the virtual machine so open the Vagrantfile with your favorite text editor and add these few lines to install the latest version of ansible.
 ```bash
-vagrant init ubuntu/focal64
+...
+    config.vm.provision "shell", inline: <<-SHELL
+        apt update
+        apt install software-properties-common
+        apt-add-repository --yes --update ppa:ansible/ansible
+        apt install --yes ansible
+    SHELL
+end       
+```
+
+Then spin up the virtual machine
+```bash
 vagrant up
 ```
 
@@ -37,11 +49,10 @@ After the virtual machine state is `running`, We can get inside it by using this
 vagrant ssh
 ```
 
-Try to update and upgrade the virtual machine operating system then exit.
+Try to run a few command, for example let's check ansible version.
 
 ```bash
-sudo apt update
-sudo apt upgrade --yes
+ansible --version
 exit
 ```
 
