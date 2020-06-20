@@ -1,7 +1,7 @@
 ---
 - hosts: all
   tasks: 
-  - name: "Set machine hostname"
+  - name: Set machine hostname
     hostname:
       name: "k8s-master"
     become: true

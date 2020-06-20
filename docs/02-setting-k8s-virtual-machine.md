@@ -2,8 +2,8 @@
 
 In this tutorial I provided 2 method to setup the k8s master virtual machine.
 
-    1. Method 1: Manual method by using SSh to the virtual machine.
-    2. Method 2: A slight automated way by using ansible.
+1. Method 1: Manual method by using SSh to the virtual machine.
+2. Method 2: A slight automated way by using ansible.
 
 
 ## Method 1: Manual Installation
@@ -16,7 +16,7 @@ Depends one the virtual machine we can update the hostname to distinguish the vm
 sudo hostnamectl set-hostname k8s-master
 ```
 
-And for example we can set for the agent
+And for example we can set for the k8s-agent
 
 ```bash
 sudo hostnamectl set-hostname k8s-agent
